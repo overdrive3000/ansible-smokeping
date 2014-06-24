@@ -1,0 +1,9 @@
+---
+# General configuration for smokeping
+owner: IT Group
+contact: juan.mesa@smartmatic.com
+mailhost: mail.smartmatic.net
+cgiurl: "http://ping.smartmatic.net/smokeping.cgi"
+
+# Probes
+probes: 
