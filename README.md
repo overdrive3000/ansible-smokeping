@@ -1,1 +1,1 @@
-== Ansible role to install and configure Smokeping
+# Ansible role to install and configure Smokeping
