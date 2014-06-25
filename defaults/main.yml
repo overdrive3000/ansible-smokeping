@@ -1,9 +1,13 @@
 ---
 # General configuration for smokeping
-owner: IT Group
-contact: juan.mesa@smartmatic.com
-mailhost: mail.smartmatic.net
-cgiurl: "http://ping.smartmatic.net/smokeping.cgi"
+general_owner: IT Group
+general_contact: user@example.com
+general_mailhost: mail.example.com
+general_cgiurl: "http://ping.example.com/smokeping.cgi"
 
-# Probes
-probes: 
+# Targets
+target_title: Example Corp Network Latency Grapher
+target_remark: >
+  Welcome to the SmokePing website of Example Company. \
+  Here you will learn all about the latency of our network.
+targets:
