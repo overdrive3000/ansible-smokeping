@@ -1,0 +1,20 @@
+*** Targets ***
+
+probe = FPing
+
+menu = Top
+title = {{ target_title }}
+remark = {{ target_remark }}
+
++ {{ item['target_group'] }}
+
+menu = {{ item['target_menu'] }}
+title = {{ item['target_title'] }}
+
+{% for target in item['target_hosts'] %}
+++ {{ target['target_host_name'] }}
+
+menu = {{ target['target_host_menu'] }}
+title = {{ target{'target_host_title'] }}
+host = {{ target['target_host_host'] }}
+{% endfor %}

@@ -13,8 +13,11 @@
     - libio-socket-inet6-perl
     - apache2
 
-- name: Configure smokeping General file
-  template: src=General.j2 dest=/etc/smokeping/config.d/General mode=0644
+- name: Configure smokeping
+  template: src={{ item.0 }} dest={{ item.1 }} mode=0644
+  with_items:
+    - ['General.j2', '/etc/smokeping/config.d/General']
+    - ['Targets.j2', '/etc/smokeping/config.d/Targets']
 
 - name: Copy smokeping FPing probe
   copy: src=Probes dest=/etc/smokeping/config.d/Probes mode=0644
