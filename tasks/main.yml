@@ -16,10 +16,8 @@
 - name: Configure smokeping General file
   template: src=General.j2 dest=/etc/smokeping/config.d/General mode=0644
 
-- name: Configure smokeping probes
-  template: src={{ item }} dest=/etc/smokeping/config.d/Probes mode=0644
-  with_items: probes
-  notify: restart smokeping
+- name: Copy smokeping FPing probe
+  copy: src=Probes dest=/etc/smokeping/config.d/Probes mode=0644
 
 - name: Configure Apache virtualhost for smokeping
   template: src=smokeping.conf.j2 dest=/etc/apache2/sites-available/smokeping.conf
