@@ -1,6 +1,6 @@
 ---
 - name: Install smokeping packages
-  apt: name={{ item }} state=present pdate_cache=yes cache_valid_time=3600
+  apt: name={{ item }} state=present update_cache=yes cache_valid_time=3600
   with_items:
     - smokeping
     - curl
@@ -14,7 +14,7 @@
     - apache2
 
 - name: Configure smokeping
-  template: src={{ item.0 }} dest={{ item.1 }} mode=0644
+  template: src={{ item[0] }} dest={{ item[1] }} mode=0644
   with_items:
     - ['General.j2', '/etc/smokeping/config.d/General']
     - ['Targets.j2', '/etc/smokeping/config.d/Targets']

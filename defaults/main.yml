@@ -11,14 +11,14 @@ target_remark: >
   Welcome to the SmokePing website of Example Company. \
   Here you will learn all about the latency of our network.
 targets:
-  - {
-      target_group: Local
-      target_menu: Local
-      target_title: Local Network
-      target_hosts:
-        - {
-            target_host_name: LocalMachine
-            target_host_menu: This host
-            target_host_host: localhost
-          }
-    }
+  {
+    target_group: Local,
+    target_menu: Local,
+    target_title: Local Network,
+    target_hosts:
+        {
+          target_host_name: LocalMachine,
+          target_host_menu: This host,
+          target_host_host: localhost
+        }
+  }
