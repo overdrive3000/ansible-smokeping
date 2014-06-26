@@ -1,6 +1,6 @@
 ---
 # Virtual host configuration for smokeping
-smokeping_listen_addr: 0.0.0.0
+smokeping_listen_address: 0.0.0.0
 smokeping_listen_port: 80
 smokeping_servername: ping.example.com
 
