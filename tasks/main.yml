@@ -13,18 +13,19 @@
     - libio-socket-inet6-perl
     - apache2
 
-- name: Configure smokeping
-  template: src={{ item.source }} dest={{ item.destination }} mode=0644
-  with_items:
-    - { source: General.j2, destination: /etc/smokeping/config.d/General }
-    - { source: Targets.j2, destination: /etc/smokeping/config.d/Targets }
+- name: Configure smokeping General
+  template: src=General.j2 dest=/etc/smokeping/config.d/General mode=0644
+
+- name: Configure smokeping Targets
+  template: src=Targets.j2 dest=/etc/smokeping/config.d/Targets mode=0644
+  with_items: targets
 
 - name: Copy smokeping FPing probe
   copy: src=Probes dest=/etc/smokeping/config.d/Probes mode=0644
 
-- name: Configure Apache virtualhost for smokeping
-  template: src=smokeping.conf.j2 dest=/etc/apache2/sites-available/smokeping.conf
-
-- name: Enable smokeping Apache virtualhosts
-  file: src=/etc/apache2/sites-available/smokeping.conf dest=/etc/apache2/sites-enabled/smokeping.conf state=link
-  notify: restart apache
+# - name: Configure Apache virtualhost for smokeping
+#   template: src=smokeping.conf.j2 dest=/etc/apache2/sites-available/smokeping.conf
+# 
+# - name: Enable smokeping Apache virtualhosts
+#   file: src=/etc/apache2/sites-available/smokeping.conf dest=/etc/apache2/sites-enabled/smokeping.conf state=link
+#   notify: restart apache

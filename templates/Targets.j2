@@ -6,15 +6,17 @@ menu = Top
 title = {{ target_title }}
 remark = {{ target_remark }}
 
-+ {{ item['target_group'] }}
+{% for target in targets %}
++ {{ target.target_group }}
 
-menu = {{ item['target_menu'] }}
-title = {{ item['target_title'] }}
+menu = {{ target.target_menu }}
+title = {{ target.target_title }}
 
-{% for target in item['target_hosts'] %}
-++ {{ target['target_host_name'] }}
+{% for host in target.target_hosts %}
+++ {{ host.target_host_name }}
 
-menu = {{ target['target_host_menu'] }}
-title = {{ target{'target_host_title'] }}
-host = {{ target['target_host_host'] }}
+menu = {{ host.target_host_menu }}
+title = {{ host.target_host_title }}
+host = {{ host.target_host_host }}
+{% endfor %}
 {% endfor %}
