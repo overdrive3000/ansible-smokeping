@@ -11,6 +11,7 @@
     - libnet-telnet-perl
     - libsocket6-perl
     - libio-socket-inet6-perl
+    - xmail
     - apache2
 
 - name: Configure smokeping General
