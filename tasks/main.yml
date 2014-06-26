@@ -24,6 +24,16 @@
   copy: src=Probes dest=/etc/smokeping/config.d/Probes mode=0644
   notify: restart smokeping
 
+- name: Enable Apache CGI module
+  apache2_module: state=present name=cgid
+
+# - name: Test copy apache2 config
+#   command: /bin/cp /etc/smokeping/apache2.conf /etc/apache2/conf-available/smokeping.conf creates=/etc/apache2/conf-available/smokeping.conf
+# 
+# - name: Test enable smokeping apache config
+#   command: /usr/sbin/a2enconf smokeping.conf creates=/etc/apache2/conf-enabled/smokeping.conf
+#   notify: restart apache
+
 - name: Configure Apache virtualhost for smokeping
   template: src=smokeping.conf.j2 dest=/etc/apache2/sites-available/smokeping.conf
 

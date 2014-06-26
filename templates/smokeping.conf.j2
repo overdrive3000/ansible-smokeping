@@ -10,9 +10,13 @@
 	CustomLog ${APACHE_LOG_DIR}/smokeping-access.log combined
 
 	ScriptAlias /smokeping.cgi /usr/lib/cgi-bin/smokeping.cgi
-	# Alias /smokeping /usr/share/smokeping/www
+	<Directory "/usr/lib/cgi-bin">
+        	Require all granted
+        	Options FollowSymLinks
+	</Directory>
 
 	<Directory "/usr/share/smokeping/www">
-	    Options FollowSymLinks
+             Require all granted
+	     Options FollowSymLinks
 	</Directory>
 </VirtualHost>
