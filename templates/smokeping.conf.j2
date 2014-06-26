@@ -1,0 +1,18 @@
+<VirtualHost {{ smokeping_listen_address }}:{{ smokeping_listen_port }}>
+	ServerName {{ smokeping_servername }}
+
+	ServerAdmin webmaster@localhost
+	DocumentRoot /usr/share/smokeping/www 
+
+	LogLevel warn
+
+	ErrorLog ${APACHE_LOG_DIR}/smokeping-error.log
+	CustomLog ${APACHE_LOG_DIR}/smokeping-access.log combined
+
+	ScriptAlias /smokeping.cgi /usr/lib/cgi-bin/smokeping.cgi
+	# Alias /smokeping /usr/share/smokeping/www
+
+	<Directory "/usr/share/smokeping/www">
+	    Options FollowSymLinks
+	</Directory>
+</VirtualHost>
